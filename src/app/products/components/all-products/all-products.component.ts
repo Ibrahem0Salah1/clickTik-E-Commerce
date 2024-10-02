@@ -23,7 +23,11 @@ export class AllProductsComponent implements OnInit {
     private router: Router,
     private auth: AuthService,
     private toastr: ToastrService
-  ) {}
+  ) {
+    this.urlLimit = Number(this.route.snapshot.paramMap.get('limit'));
+    this.urlSkip = Number(this.route.snapshot.paramMap.get('skip'));
+    console.log(this.urlLimit, this.urlSkip);
+  }
   allProducts: any = [];
   allCategories: any = [];
   loadingSpinner: boolean = false;
