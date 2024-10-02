@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
     this.addToCart();
   }
   response: any = {};
+  cartLength: any;
   addToCart() {
     const userId = JSON.parse(localStorage.getItem('userId')!);
     const cartProducts = JSON.parse(localStorage.getItem('cart')!);
@@ -46,6 +47,7 @@ export class CartComponent implements OnInit {
         (res: any) => {
           console.log(res);
           this.response = res;
+          this.cartLength = this.response.products.length;
         },
         (error: any) => {
           console.log(error);
