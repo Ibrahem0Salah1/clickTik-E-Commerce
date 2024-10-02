@@ -32,6 +32,7 @@ export class CartComponent implements OnInit {
     const userId = JSON.parse(localStorage.getItem('userId')!);
     const cartProducts = JSON.parse(localStorage.getItem('cart')!);
     let products = [];
+    this.cartLength = cartProducts.length;
     console.log(cartProducts);
     for (let product of cartProducts) {
       products.push({ id: product.product.id, quantity: product.quantity });
@@ -47,7 +48,6 @@ export class CartComponent implements OnInit {
         (res: any) => {
           console.log(res);
           this.response = res;
-          this.cartLength = this.response.products.length;
         },
         (error: any) => {
           console.log(error);

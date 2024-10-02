@@ -23,6 +23,7 @@ const routes: Routes = [
   {
     path: 'clicktik.com/cart',
     component: CartComponent,
+    canActivate: [authGuard],
   },
   {
     path: '**',
