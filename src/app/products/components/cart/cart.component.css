@@ -16,8 +16,8 @@
 }
 
 @media (min-width:992px){
-    .ContainerPage{
-        height: 100vh;
+    .footer{
+        position: sticky;
     }
 }
 @media (max-width: 992px) {
