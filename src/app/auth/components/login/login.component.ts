@@ -42,9 +42,7 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', res.accessToken);
       console.log(res.accessToken);
       localStorage.setItem('refreshToken', res.refreshToken);
-      this.route.navigateByUrl(
-        'clickTik.com/home/products/:limit/:skip/:category'
-      );
+      this.route.navigateByUrl('clickTik.com/home/products/9/0/All');
     });
     this.authUser();
   }
@@ -56,9 +54,7 @@ export class LoginComponent implements OnInit {
         // console.log(this.currentUser);
         this.logedIn = true;
         if (this.logedIn) {
-          this.route.navigateByUrl(
-            'clickTik.com/home/products/:limit/:skip/:category'
-          );
+          this.route.navigateByUrl('clickTik.com/home/products/9/0/All');
         }
       },
       error: (err) => {
