@@ -8,6 +8,7 @@ import {
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AllProductsComponent } from 'src/app/products/components/all-products/all-products.component';
 @Component({
   selector: 'login',
   templateUrl: './login.component.html',
@@ -42,7 +43,9 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('token', res.accessToken);
       console.log(res.accessToken);
       localStorage.setItem('refreshToken', res.refreshToken);
-      this.route.navigateByUrl('clickTik.com/home/products/9/0/All');
+      this.route.navigateByUrl(
+        'clickTik.com/home/products/:limit/:skip/:category'
+      );
     });
     this.authUser();
   }
@@ -54,7 +57,10 @@ export class LoginComponent implements OnInit {
         // console.log(this.currentUser);
         this.logedIn = true;
         if (this.logedIn) {
-          this.route.navigateByUrl('clickTik.com/home/products/9/0/All');
+          this.route.navigateByUrl(
+            'clickTik.com/home/products/:limit/:skip/:category'
+          );
+          // navigateByUrl('clickTik.com/home/products/9/0/All');
         }
       },
       error: (err) => {
