@@ -20,7 +20,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: ProductsService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private nav: Router
   ) {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(Number(this.id));
@@ -63,6 +64,7 @@ export class ProductDetailsComponent implements OnInit {
         localStorage.setItem('cart', JSON.stringify(this.cartProducts));
         // this.added = true;
         this.toastr.success('Product is added to your cart');
+        this.nav.navigateByUrl('home/products/9/0/All');
       }
     } else {
       // this.countCart = this.cartProducts.length;
@@ -74,6 +76,7 @@ export class ProductDetailsComponent implements OnInit {
       // this.countCart.emit(this.countCart);
       this.toastr.success('Product is added to your cart');
       localStorage.setItem('cart', JSON.stringify(this.cartProducts));
+      this.nav.navigateByUrl('home/products/9/0/All');
       // this.added = true;
     }
     // this.added = false;
