@@ -9,25 +9,25 @@ import { CartComponent } from './products/components/cart/cart.component';
 import { ProductDetailsComponent } from './products/components/product-details/product-details.component';
 
 const routes: Routes = [
-  { path: 'clickTik.com/login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   // { path: 'home', component: AllProductsComponent, canActivate: [authGuard] },
   {
-    path: 'clickTik.com/home/products/:limit/:skip/:category',
+    path: 'home/products/:limit/:skip/:category',
     component: AllProductsComponent,
     canActivate: [authGuard],
   },
   {
-    path: 'clicktik.com/products/:product/:id/:countCart',
+    path: 'products/:product/:id/:countCart',
     component: ProductDetailsComponent,
   },
   {
-    path: 'clicktik.com/cart',
+    path: 'cart',
     component: CartComponent,
     canActivate: [authGuard],
   },
   {
     path: '**',
-    redirectTo: 'clickTik.com/home/products/9/0/All',
+    redirectTo: 'home/products/9/0/All',
     pathMatch: 'full',
   },
   // { path: 'product', component: ProductComponent },

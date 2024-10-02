@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
     const title = this.product.title;
     const id = this.product.id;
     const cartC = this.cartCount;
-    this.route.navigateByUrl(`clicktik.com/products/${title}/${id}/${cartC}`);
+    this.route.navigateByUrl(`products/${title}/${id}/${cartC}`);
   }
   @Input() product: any = {};
   @Input() currentUser: any = {};

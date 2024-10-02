@@ -1,10 +1,10 @@
 <div class="rows">
     <div class="links">
-        <div class="logo" routerLink="clickTik.com/home/products/9/0/All">
+        <div class="logo" routerLink="home/products/9/0/All">
             <img src="assets/images/Logomark.png" alt="Logomark-ClickTik">
             <h1 class="title">ClickTik</h1>
         </div>
-        <div class="home" routerLink="clickTik.com/home/products/9/0/All">Home</div>
+        <div class="home" routerLink="home/products/9/0/All">Home</div>
     </div>
     <div class="actions" *ngIf="logedIn">
         <app-search (text)="onSearch($event)"></app-search>

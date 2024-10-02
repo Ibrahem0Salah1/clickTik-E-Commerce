@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
     return true;
   } else {
     const router = inject(Router);
-    router.navigateByUrl('clickTik.com/login');
+    router.navigateByUrl('login');
     return false;
   }
 };

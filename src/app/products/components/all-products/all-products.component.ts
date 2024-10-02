@@ -24,6 +24,7 @@ export class AllProductsComponent implements OnInit {
     private auth: AuthService,
     private toastr: ToastrService
   ) {
+    console.log('he');
     this.urlLimit = Number(this.route.snapshot.paramMap.get('limit'));
     this.urlSkip = Number(this.route.snapshot.paramMap.get('skip'));
     console.log(this.urlLimit, this.urlSkip);
@@ -37,6 +38,7 @@ export class AllProductsComponent implements OnInit {
   skip = 0;
 
   ngOnInit(): void {
+    console.log('hel');
     this.getUser();
     this.refreshPage();
     this.cartCount();
@@ -76,7 +78,7 @@ export class AllProductsComponent implements OnInit {
           this.searchText = '';
           this.allProducts = res.products;
           this.router.navigateByUrl(
-            `clickTik.com/home/products/${this.urlLimit}/${this.skip}/${this.selectedCategory}`
+            `home/products/${this.urlLimit}/${this.skip}/${this.selectedCategory}`
           );
           this.loadingSpinner = false;
         },
@@ -90,7 +92,7 @@ export class AllProductsComponent implements OnInit {
         (res: any) => {
           this.allProducts = res.products;
           this.router.navigateByUrl(
-            `clickTik.com/home/products/${this.urlLimit}/${this.skip}/${this.selectedCategory}`
+            `home/products/${this.urlLimit}/${this.skip}/${this.selectedCategory}`
           );
           this.loadingSpinner = false;
         },
@@ -127,7 +129,7 @@ export class AllProductsComponent implements OnInit {
     this.searchText = searchValue;
     this.selectedCategory = 'All';
     if (this.searchText == '') {
-      `clickTik.com/home/products/${this.urlLimit}/${this.skip}/${this.selectedCategory}`;
+      `home/products/${this.urlLimit}/${this.skip}/${this.selectedCategory}`;
     }
     console.log(this.searchText);
     this.sharedService.SearchProducts(searchValue).subscribe((res: any) => {

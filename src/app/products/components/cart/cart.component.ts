@@ -14,7 +14,9 @@ export class CartComponent implements OnInit {
     private auth: AuthService,
     private service: ProductsService,
     private route: Router
-  ) {}
+  ) {
+    this.getUserId();
+  }
   getUserId() {
     this.auth.getAndAuthorizeCurrentUser().subscribe((res: any) => {
       console.log(res);
@@ -27,8 +29,7 @@ export class CartComponent implements OnInit {
     this.addToCart();
   }
   response: any = {};
-  cartLength: any;
-  addToCart() {
+  pushCart() {
     const userId = JSON.parse(localStorage.getItem('userId')!);
     const cartProducts = JSON.parse(localStorage.getItem('cart')!);
     let products = [];
@@ -54,11 +55,20 @@ export class CartComponent implements OnInit {
         }
       );
   }
+  cartLength: any;
+  addToCart() {
+    if ('cart' in localStorage && 'userId' in localStorage) {
+      this.pushCart();
+    } else {
+      this.getUserId();
+      this.pushCart();
+    }
+  }
   goToProductDetails(product: any) {
     console.log(product);
     const title = product.title;
     const id = product.id;
     const cartC = this.response.products.length;
-    this.route.navigateByUrl(`clicktik.com/products/${title}/${id}/${cartC}`);
+    this.route.navigateByUrl(`products/${title}/${id}/${cartC}`);
   }
 }

@@ -8,6 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit, OnChanges {
   logedIn: boolean = false;
-  constructor(private route: Router) {}
+  constructor(private route: Router, private auth: AuthService) {}
   @Output() text = new EventEmitter<string>();
   @Input() countOfCart: any;
   ngOnChanges(changes: SimpleChanges): void {
@@ -24,6 +25,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.quantity = 1;
   }
   ngOnInit(): void {
+    this.getUserId();
     const token = localStorage.getItem('token');
     if (token) {
       this.logedIn = true;
@@ -31,6 +33,14 @@ export class HeaderComponent implements OnInit, OnChanges {
       this.logedIn = false;
     }
     console.log(this.countOfCart);
+  }
+  user: any;
+  getUserId() {
+    this.auth.getAndAuthorizeCurrentUser().subscribe((res: any) => {
+      console.log(res);
+      this.user = res;
+      localStorage.setItem('userId', this.user.id);
+    });
   }
   // countItems: any;
   searchText: any = '';
@@ -61,7 +71,7 @@ export class HeaderComponent implements OnInit, OnChanges {
     this.cartProducts = [];
   }
   checkout() {
-    this.route.navigateByUrl('clicktik.com/cart');
+    this.route.navigateByUrl('cart');
     this.quantity = 1;
   }
 }
