@@ -37,6 +37,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    const limit = 9;
+    const skip = 0;
+    const category = 'All';
     const loginData = this.loginForm.value;
     this.http.onLogin(loginData).subscribe((res: any) => {
       // console.log(res);
@@ -44,7 +47,7 @@ export class LoginComponent implements OnInit {
       console.log(res.accessToken);
       localStorage.setItem('refreshToken', res.refreshToken);
       this.route.navigateByUrl(
-        'clickTik.com/home/products/:limit/:skip/:category'
+        `clickTik.com/home/products/${limit}/${skip}/${category}`
       );
     });
     this.authUser();
