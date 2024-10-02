@@ -1,0 +1,99 @@
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Product Card/Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous">
+</head>
+<app-header></app-header>
+
+<body>
+    <div class="card-wrapper" style="margin-top: 60px; margin-bottom: 65px; width: 80%;">
+        <div class="card">
+            <!-- card left -->
+            <div class="product-imgs">
+                <div class="img-display">
+                    <div class="img-showcase" #imgShowcase style="transform: translateX(0px);">
+                        <img *ngFor="let image of product.images" [src]="image" alt="productImg">
+                    </div>
+                </div>
+                <div class="img-select">
+                    <div class="img-item" *ngFor="let image of product.images ;let i = index">
+                        <a [attr.data-id]="i + 1" (click)="onImgClick($event, i+1)" *ngIf="product.images.length>1">
+                            <img class="sss" [src]="image" alt="productImg">
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+            <!-- card right -->
+            <div class="product-content">
+                <h2 class="product-title">{{product.title}}</h2>
+                <a style="background-color:#41CCCC; color:#252525; padding: 2px 5px;"
+                    href="https://www.linkedin.com/in/ibrahim-salah-94417921b/" class="product-link">visit original
+                    store</a>
+                <div class="product-rating">
+                    <i *ngIf="product.rating>3.5" class="fas fa-star"></i>
+                    <span> Rating: {{ product.rating }} <span style="color: #7e8288b8; font-weight: 500;"> ({{
+                            product.reviews.length }}
+                            reviews)</span>
+                    </span>
+                </div>
+
+                <div class="product-price">
+                    <p class="last-price">Old Price: <span>{{product.price}}</span></p>
+                    <p class="new-price">New Price: <span style="font-weight: 700;">{{getDiscountPrice(product.price,
+                            product.discountPercentage)}}$ <span
+                                style="color: green;">({{product.discountPercentage}}%)</span> </span></p>
+                </div>
+
+                <div class="product-detail">
+                    <h2>about Product: </h2>
+                    <p>{{product.description}}
+                    <ul>
+                        <li>Brand: <span>{{product.brand}}</span></li>
+                        <li>Available: <span style="color: green;">in stock ({{product.stock}})</span></li>
+                        <li>Category: <span>{{product.category}}</span></li>
+                        <li>Shipping Area: <span>All over the world</span></li>
+                        <li>Shipping Fee: <span>Free</span></li>
+                        <li>Warranty Information: <span>{{product.warrantyInformation}}</span></li>
+                    </ul>
+                </div>
+
+                <div class="purchase-info">
+                    <input type="number" class="form-control quantityinput" style="text-align: center;"
+                        [value]="quantity" [(ngModel)]="quantity">
+                    <button type="button" class="btn" (click)="addToCartItem()">
+                        Add to Cart <i class="fas fa-shopping-cart"></i>
+                    </button>
+                    <!-- <button type="button" class="btn">Compare</button> -->
+                </div>
+
+                <div class="social-links">
+                    <p>Share At : </p>
+                    <a href="https://www.linkedin.com/in/ibrahim-salah-94417921b/">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibrahim-salah-94417921b/">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibrahim-salah-94417921b/">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibrahim-salah-94417921b/">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ibrahim-salah-94417921b/">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div class="footer" style="padding-bottom: 20px;">
+    <app-footer></app-footer>
+</div>

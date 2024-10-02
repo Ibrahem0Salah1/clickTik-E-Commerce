@@ -1,0 +1,292 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+.headerContainer {
+    grid-column: span 12 / span 12;
+}
+
+.rows {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 0px auto;
+    padding: 15px 0px;
+}
+
+.links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+    /* background-color: red; */
+}
+
+.logo {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo img {
+    width: 36px;
+    height: 36px;
+}
+
+.logo .title {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.home {
+    color: #667085;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.login {
+    color: #667085;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Search bar styles */
+.actions {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin-right: 20px;
+}
+
+
+.cart-icon {
+    font-size: 22px;
+    color:#667085;
+    margin-left: 12px;
+    cursor: pointer;
+    position: relative;
+}
+.child{
+position: absolute;
+background-color:#41CCCC;
+border-radius: 50%;
+font-size: 12px;
+padding: 2px 4px;
+top: -10px;
+left: 15px;
+color: #34405488;
+gap: 0px;
+border: 2px 0px 0px 0px;
+opacity: 0px;
+}
+.offcanvas-header{
+    color:#1e1e1e;
+    font-weight: 700;
+    padding: 15px;
+    background-color: #F6F6F6;
+}
+.offcanvas-body{
+    color: #222d41;
+    font-weight: 400;
+    padding: 15px 5px;
+    background-color: #F6F6F6;
+}
+.product{
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    /* align-items: center; */
+}
+.product .image{
+    width: 70px;
+    height: 50px;
+    margin-right: 10px;
+}
+.image img{
+    width: 100%;
+    height: 100%;
+}
+.title1{
+    font-size: 16px;
+    color:#222d41;
+    font-weight: 500;
+}
+.title2{
+    font-size: 14px;
+    color: #222d41;
+}
+.title2 span{
+    color: #667085;
+    font-weight: 700;
+}
+.empty{
+    background-color: rgb(140, 32, 32);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.offcanvas-footer button{
+    width: 50%;
+    padding: 10px;
+    outline: 0;
+    border: 0;
+}
+.quantityinput{
+    width: 100px;
+    text-align: center;
+    /* padding-left: 12px; */
+}
+.setQuality{
+    outline: 0;
+    border: 0;
+    font-size: 16px;
+    background-color: #41CCCC;
+    color: #222d41;
+    border-radius: 4px;
+    padding: 4px 8px;
+    margin-top: 5px;
+}
+.offcanvas-footer .checkout{
+    background-color: #41CCCC;
+    color: #222d41;
+}
+.offcanvas-footer .deleteCart{
+    background-color: #dc3545;
+    color: #F6F6F6;
+}
+form.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+form.d-flex input.form-control {
+    width: 400px;
+    padding: 6px;
+    transition: width 0.3s ease-in-out;
+}
+
+form.d-flex button {
+    margin-left: 8px;
+}
+
+@media(max-width:1800px){
+    .rows {
+        width: 90%;
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .actions{
+        
+        justify-content: end;
+        
+    }
+}
+
+@media (max-width: 1200px) {
+    .rows {
+        width: 90%;
+        
+    }
+    .actions{
+        justify-content: end;
+        
+    }
+}
+
+@media (max-width: 992px) {
+    .rows {
+        width: 90%;
+        
+    }
+    .actions{
+        justify-content: end;
+       
+    }
+    form.d-flex input.form-control {
+        width: 350px;
+        padding: 5px;
+    }
+
+    form.d-flex button {
+        margin-left: 5px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .rows {
+        width: 95%;
+    }
+    .links .home{
+        /* background-color: red; */
+        margin-left: 15px;
+    }
+    .actions{
+        width: 100%;
+        margin-left: 15px;
+    }
+    
+    form.d-flex input.form-control {
+        width: 100%;
+        
+    }
+
+    
+}
+
+@media (max-width: 576px) {
+    .rows {
+        width: 98%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .actions{
+        width: 90%;
+        margin-left: 15px;
+    }
+    form.d-flex {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    form.d-flex input.form-control {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .logo .title {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .links {
+        justify-content: space-evenly;
+        width: 200px;
+        margin-bottom: 10px;
+    }
+
+    .home {
+        padding: 5px;
+    }
+}

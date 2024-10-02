@@ -1,0 +1,225 @@
+
+/* General Styles */
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+    gap: 8px;
+    height: 100vh;
+}
+
+/* Header styles */
+.headerContainer {
+    grid-column: span 12 / span 12;
+}
+
+.rows{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    margin: 20px auto;
+}
+
+.links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 250px;
+}
+
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.logo img{
+    width: 36px;
+    height: 36px;
+}
+
+.home{
+    color: #667085;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.logo .title{
+    font-size: 18px;
+    color: #000000;
+    font-weight: 500;
+    padding: 10px;
+}
+
+.login{
+    color: #667085;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.main {
+    grid-column: span 4 / span 4;
+    grid-row: span 5 / span 5;
+    grid-column-start: 5;
+    grid-row-start: 2;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    align-items: center;
+    box-sizing: border-box;
+    
+}
+
+.main .logoMark{
+    width: 100%;
+    text-align: center;
+}
+.main .header{
+    width: 100%;
+    text-align: center;
+}
+.main form{
+    width: 100%;
+    text-align: center;
+}
+
+.signBtn{
+    width: 100%;
+    padding: 8px;
+    margin-top: 20px;
+    background-color: #41CCCC;
+    color:  #344054;
+    border: 0px;
+    font-weight: 500;
+}
+.card{
+    width: 100%;
+    padding: 10px;
+}
+.logedInImg{
+    width: 50px;
+}
+.goHomeLink{
+    padding: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    color:white;
+    background-color:#344054;
+    border-radius: 5px;
+    text-align: center;
+    width: 80%;
+    margin: 5px auto;
+    /* text-decoration: underline; */
+}
+
+/* Footer styles */
+.footer {
+    grid-column: span 12 / span 12;
+    grid-column-start: 1;
+    grid-row-start: 9;
+    background-color:  #1D2939;
+
+}
+.footer .container{
+    color: white;
+    width: 80%;
+    margin: 0px  auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+.footer .container .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.footer .container .left img{
+    width: 34px;
+    margin-right: 5px;
+}
+.footer .container .right{
+    margin-top: 20px;
+    color: #98A2B3;
+    
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .main {
+        grid-column: span 6 / span 6;
+        grid-column-start: 4;
+    }
+}
+@media (min-width: 768px) {
+    
+    .goHomeLink{
+        margin: 5px 0px;
+    }
+}
+
+@media (max-width: 992px) {
+    .rows{
+        width: 90%;
+    }
+    .main {
+        grid-column: span 8 / span 8;
+        grid-column-start: 3;
+    }
+    .footer .container{
+        font-size: 14px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .rows{
+        width: 90%;
+    }
+    .main {
+        grid-column: span 10 / span 10;
+        grid-column-start: 2;
+        padding: 15px;
+    }
+}
+.logedIn{
+    cursor: pointer;
+}
+@media (max-width: 576px) {
+    .rows{
+        width: 98%;
+    }
+    .logo .title{
+        font-size: 16px;
+        padding: 5px;
+    }
+    .logo img{
+        width: 34px;
+        height: 34px;
+    }
+    .links{
+        justify-content: space-evenly;
+        width: 200px;
+    }
+    .home{
+        padding: 5px;
+    }
+    .main {
+        grid-column: span 12 / span 12;
+        grid-column-start: 1;
+        padding: 10px;
+    }
+}

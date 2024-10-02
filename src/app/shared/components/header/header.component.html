@@ -1,0 +1,48 @@
+<div class="rows">
+    <div class="links">
+        <div class="logo" routerLink="clickTik.com/home/products/:limit/:skip/:category">
+            <img src="assets/images/Logomark.png" alt="Logomark-ClickTik">
+            <h1 class="title">ClickTik</h1>
+        </div>
+        <div class="home" routerLink="clickTik.com/home/products/:limit/:skip/:category">Home</div>
+    </div>
+    <div class="actions" *ngIf="logedIn">
+        <app-search (text)="onSearch($event)"></app-search>
+        <button class="btn btnCategories" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart"
+            aria-controls="offcanvasScrolling"><i class=" fas fa-shopping-cart cart-icon">
+                <span *ngIf="countOfCart" class="child">{{countOfCart}}</span>
+            </i></button>
+        <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="cart"
+            aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <!-- filter -->
+            <div class="offcanvas-body">
+                <p *ngIf="!emptyCart" class="empty">Oops! Your cart is empty</p>
+                <div class="product" *ngFor="let cartProduct of cartProducts">
+                    <div class="image">
+                        <img [src]="cartProduct.product.images[0]" alt="product's image">
+                    </div>
+                    <div class="title">
+                        <p class="title1">{{cartProduct.product.title}}</p>
+                        <p class="title2"> Quantity: <span>{{cartProduct.quantity}}</span></p>
+                    </div>
+                    <div class="title">
+                        <div>
+                            <input type="number" class="form-control quantityinput" [value]="cartProduct.quantity"
+                                [(ngModel)]="cartProduct.quantity">
+                            <button class="setQuality" (click)="setQuantity()">set
+                                quantity</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offcanvas-footer" *ngIf="emptyCart">
+                <button class="deleteCart" (click)="deleteCart()">Delete Cart</button>
+                <button class="checkout" (click)="checkout()">Review and checkout</button>
+            </div>
+        </div>
+    </div>
+    <hr>

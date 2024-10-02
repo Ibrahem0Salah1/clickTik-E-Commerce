@@ -1,0 +1,17 @@
+<div class="form-check option">
+    <input class="form-check-input" style="background-color: #667085" type="radio" name="categoryRadios" id="All"
+        value="All" [(ngModel)]="selectedCategory" (change)="onCategoryChange('All')"
+        routerLink="/home/products/9/0/All">
+    <label class="form-check-label" for="All">
+        All
+    </label>
+</div>
+
+<div class="form-check option" *ngFor="let category of allCategories">
+    <input class="form-check-input" style="background-color: #667085" type="radio" name="categoryRadios"
+        [value]="category" [(ngModel)]="selectedCategory" (change)="onCategoryChange(category)"
+        [checked]="selectedCategory === category">
+    <label class="form-check-label">
+        {{ category }}
+    </label>
+</div>

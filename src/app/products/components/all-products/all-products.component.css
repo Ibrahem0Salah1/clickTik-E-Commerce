@@ -1,0 +1,240 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Container for the home page */
+.container {
+    max-width: 100%;
+}
+.box{
+    display: flex;
+    justify-content: center;
+    
+}
+.labels{
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.btnCategories{
+    background-color:#dedede;
+    color:#344054;
+    padding: 4px 8px;
+    display: none;
+}
+.btnCategories:hover{
+    background-color:#41CCCC;
+    color: #1E1E1E;
+    
+}
+.offcanvas-header{
+    color:#1e1e1e;
+    font-weight: 700;
+    padding: 15px;
+    background-color: #F6F6F6;
+}
+.offcanvas-body{
+    color: #222d41;
+    font-weight: 400;
+    padding: 15px;
+    background-color: #F6F6F6;
+}
+.categoryLabel{
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.78px;
+    text-align: left;
+    color: #344054;
+}
+.labels p{
+    color: #1E1E1E;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 21.78px;
+    text-align: left;
+}
+.slectList{
+    width: 25%;
+    border: 1px solid #6c757d;
+    border-radius: 10px;
+    padding: 20px 35px;
+    margin-top: 30px;
+    margin-left: 40px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* .option:hover{
+    background-color: #6c757d;
+} */
+.productsall{
+    margin-top: 30px;
+}
+/* Category list styles */
+/* .list-group-item {
+    cursor: pointer;
+} */
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Product card styles */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Adjusting image sizes */
+.cardImage {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Pagination styles */
+.pagination {
+    justify-content: center;
+    width: 400px;
+    margin: 30px auto;
+}
+
+.page-link {
+    background-color: white;
+    border: 1px solid #F6F6F6;
+    width: 32px;
+    margin: 5px;
+    color:  #1e1e1e;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+.page-link:hover {
+    background-color: #41CCCC;
+}
+.headerContainer{
+    margin-top: 0px;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color:#F6F6F6;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+}
+.item{
+    width: 28%;
+    
+}
+@media (max-width: 1200px) {
+    .item{
+        width: 45%;
+    }
+}
+/* Media Queries */
+@media (max-width: 992px) {
+    .list-group {
+        margin-bottom: 20px;
+    }
+    .slectList{
+        display: none;
+    }
+    .footer .container{
+        font-size: 14px;
+    }
+    .btnCategories{
+        display: block;
+        font-size: 16px;
+        
+    }
+    .cardImage {
+        height: 180px;
+    }
+    .item{
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardImage {
+        height: 160px;
+    }
+
+    .col-md-4 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    .item{
+        width:40%;
+        
+    }
+}
+
+@media (max-width: 576px) {
+    .cardImage {
+        height: 140px;
+    }
+    .labels{
+        flex-wrap: wrap;
+        flex-direction: column;
+        text-align: left;
+        align-items: start;
+        justify-content: space-between;
+    }
+    .labels p{
+        margin-bottom: 10px;
+    }
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;    
+    }
+    .item{
+        width:90%;
+    }
+}
+/* footer */
+.footer {
+    grid-column: span 12 / span 12;
+    grid-column-start: 1;
+    grid-row-start: 9;
+    background-color:  #1D2939;
+
+}
+.footer .container{
+    color: white;
+    width: 80%;
+    margin: 0px  auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+.footer .container .left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.footer .container .left img{
+    width: 34px;
+    margin-right: 5px;
+}
+.footer .container .right{
+    margin-top: 20px;
+    color: #98A2B3;
+    
+}

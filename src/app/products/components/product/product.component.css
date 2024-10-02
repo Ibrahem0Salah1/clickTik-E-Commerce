@@ -1,0 +1,132 @@
+.card{
+    height:100%;
+}
+
+.cardImage{
+    width: 100%;
+    height: 250px;
+    border-radius: 10px;
+}
+.pricespan{
+    background-color: #1D2939;
+    padding:6px;
+    color: white;
+    border-radius: 4px;
+}
+.item:hover{
+    transform: scale(1.03);
+    transition: .3s all;
+}
+.discPercentage{
+    width: fit-content;
+    background: #41CCCC;
+    text-align: center;
+    border-radius: 5px;
+    padding: 4px 8px;
+    color: #344054;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 14.52px;
+    text-align: center;
+}
+.card-title{
+    text-align: left;
+    color: #344054;
+    font-size: 18px;
+    font-weight: 700;
+    height: 40px;
+    margin-bottom: 10px;
+}
+.card-text{
+    color: #344054;
+    font-weight: 400;
+    font-size: 15px;
+    font-weight: 400;
+    /* height: 50px; */
+    line-height: 17px;
+    text-align: left;
+    display: -webkit-box;           
+    -webkit-box-orient: vertical;     
+    -webkit-line-clamp:2;            
+    overflow: hidden;
+    text-overflow:ellipsis; 
+    max-height: 4.5em;           
+}
+.price{
+    font-size: 15px;
+}
+.orignalPrice{
+    text-decoration: line-through;
+    text-decoration-color:#64676ad0;
+    
+    /* font-size: 14px; */
+}
+.numberP{
+    font-weight: 700;
+    line-height: 16.94px;
+    text-align: left;
+    color:  #344054;
+}
+.values{
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    text-align: left;    
+    color: #344054;
+}
+.values span{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.94px;
+    text-align: left;
+    color: #344054;
+}
+.rating{
+    text-align: end;
+    font-size: 16px;
+}
+.revLength{
+font-size: 16px;
+font-weight: 400;
+line-height: 21.79px;
+text-align: center;
+color: #1e1e1ebc;
+}
+.addToCart2,.addToCart1{
+    
+    color:  #344054e0;
+    background-color:#41CCCC;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21.79px;
+    text-align: center;
+    width: 100%;
+    border: 0;
+    outline: 0;
+    padding: 10px 15px;
+    border-radius: 5px; 
+    width: 45%;
+    margin-right: 4px;
+    font-weight: 500;
+}
+.addToCart2{
+    background-color:#344054;
+    
+    color: white;
+    font-weight: 500;
+}
+.active{
+    background-color:gray;
+    color:rgba(0, 0, 0, 0.585);
+}
+/* Success toast customization */
+/* .toast-success {
+    background-color: green !important; /* Set background to green */
+@media (max-width: 968px) {
+    .addToCart1, .addToCart2{
+        width: 80%;
+    }
+    .addToCart1{
+        margin-bottom: 8px;
+    }
+}

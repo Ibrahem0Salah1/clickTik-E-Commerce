@@ -1,0 +1,109 @@
+<!-- navBar -->
+<div class="headerContainer">
+    <app-header (text)="onSearchText($event)" [countOfCart]="cartCountAll"></app-header>
+</div>
+
+
+
+<!-- heros -->
+<div class="text-center w-100" style="margin-top: 50px;">
+    <app-spinner *ngIf=" loadingSpinner" style="color: #41CCCC;"></app-spinner>
+</div>
+<!-- labels -->
+<div class="labels">
+    <p>Home / Products
+        <span class="categoryLabel" *ngIf="selectedCategory!=='All'"> / {{selectedCategory}}</span>
+        <span class="categoryLabel" *ngIf="selectedCategory=='All'"> / {{searchText}}</span>
+    </p>
+    <!-- offCanvas -->
+    <button class="btn btnCategories" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+        aria-controls="offcanvasScrolling">Select category &raquo;</button>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Select Category :</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <!-- filter -->
+        <div class="offcanvas-body">
+            <app-filter-products (categoryChange)="onCategorySelected($event)"></app-filter-products>
+        </div>
+    </div>
+</div>
+<div class="box mt-4">
+    <!-- select box -->
+    <div class="select slectList  ">
+        <!-- 1- [categories]="categories" =>> the value of categories coming from the parent -->
+        <!-- 2- (selectedCategory)="filterCategory($event)"
+            (selectedCategory)=> is the event that going to the parent with the value or category selected and passed to
+            filterCategory($event) function to filter categories in all products.ts
+        -->
+        <!-- <app-select [categories]="categories" (selectedCategory)="filterCategory($event)"></app-select> -->
+        <app-filter-products (categoryChange)="onCategorySelected($event)"></app-filter-products>
+
+    </div>
+
+
+    <!-- products box -->
+    <div class="container productsall">
+        <!-- Products -->
+        <div class="row " *ngIf="!loadingSpinner">
+            <div class="item col-md-3 col-sm-12 " *ngFor="let item of allProducts" style="margin-bottom: 30px;">
+                <!-- product here is the object in item.ts that we pass the data from parent in it using the "item" of products -->
+                <app-product [product]="item" (countCart)="getCartCount($event)"
+                    [currentUser]="currentUser"></app-product>
+            </div>
+        </div>
+        <!-- paginations -->
+        <nav aria-label="Page navigation example" *ngIf="selectedCategory==='All' && searchText ===''">
+            <ul class="pagination justify-content-center">
+                <!-- Previous -->
+                <li class="page-item">
+                    <button class="page-link " (click)="PreviousPage()" [disabled]="skip < 9">
+                        <span aria-hidden="true">&laquo;</span>
+                    </button>
+                </li>
+
+                <!-- First page -->
+                <li class="page-item" *ngIf="skip > 9">
+                    <a class="page-link" (click)="getAllProducts(urlLimit, 0, selectedCategory)">1</a>
+                </li>
+
+                <!-- Ellipsis before middle pages -->
+                <li *ngIf="skip > limit * 3" class="page-item">
+                    <span class="page-link">...</span>
+                </li>
+
+                <!-- Pages around current skip -->
+                <li *ngFor="let i of [].constructor(totalPages); let index = index" class="page-item">
+                    <a *ngIf="index >= (skip / limit) - 1 && index < (skip / limit) + 2"
+                        [ngStyle]="{ 'background-color': (skip / limit) === index ? '#41CCCC' : '#fff'}"
+                        (click)="getAllProducts(limit, index * limit, selectedCategory)" class="page-link">
+                        {{ index + 1 }}
+                    </a>
+                </li>
+
+                <!-- Ellipsis after middle pages -->
+                <li *ngIf="skip < limit * (totalPages - 4)" class="page-item">
+                    <span class="page-link">...</span>
+                </li>
+
+                <!-- Last page -->
+                <li class="page-item" *ngIf="skip < 180">
+                    <a class="page-link" (click)="getAllProducts(urlLimit, 189, selectedCategory)">
+                        {{totalPages }}</a>
+                </li>
+
+                <!-- Next -->
+                <li class="page-item">
+                    <button class="page-link" (click)="nextPage()" [disabled]="skip >= (totalPages - 1) * limit">
+                        <span aria-hidden="true">&raquo;</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div class="footer" style="padding-bottom: 20px;">
+    <app-footer></app-footer>
+</div>

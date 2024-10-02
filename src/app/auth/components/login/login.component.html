@@ -1,0 +1,61 @@
+<div class="parent">
+    <!-- Header -->
+    <div class="headerContainer">
+        <app-header></app-header>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        <div class="logoMark">
+            <img src="assets/images/Logomark.png" alt="">
+        </div>
+        <div class="header">
+            <h1>Log in to your account</h1>
+            <p>Welcome back!
+                <span *ngIf="!logedIn">Please enter your details</span>
+                <span style="font-weight: bold;" *ngIf="logedIn">{{currentUser.firstName}}
+                    {{currentUser.lastName}}</span>
+            </p>
+        </div>
+        <div class="" *ngIf="logedIn" style="width: 80%;">
+            <div class="container mt-5">
+                <div class="card">
+                    <div class="row g-0" style="justify-content: center; align-items: center; ">
+                        <div class="col-md-4">
+                            <img src="{{currentUser.image}}" class="img-fluid rounded-start logedInImg"
+                                alt="User Image">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{currentUser.firstName}}
+                                    {{currentUser.lastName}}</h5>
+                                <p class="card-text"><small class="text-muted">{{currentUser.email}}</small></p>
+                            </div>
+                            <p class="goHomeLink" routerLink="clickTik.com/home/9/0">Go to the home page</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!logedIn">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" formControlName="username" id="floatingInput"
+                    placeholder="Username">
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" formControlName="password" id="floatingPassword"
+                    placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="col-12">
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary signBtn">Sign in</button>
+            </div>
+        </form>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        <app-footer></app-footer>
+    </div>
+
+</div>

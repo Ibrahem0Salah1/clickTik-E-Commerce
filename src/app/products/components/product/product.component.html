@@ -1,0 +1,39 @@
+<div class="card item">
+    <div class="card-body">
+        <p class="discPercentage">- {{product.discountPercentage}}%</p>
+        <img class="cardImage" [src]="product.images[0]" style="width: 100%;">
+        <h5 class="card-title">{{product.title}}</h5>
+        <p class="card-text">
+            <span>{{ product.description}}</span>
+            <!-- <span *ngIf="showFullDescription">{{product.description }}</span> -->
+        </p>
+        <p class="price">
+            <span class="orignalPrice"><span class="numberP">{{product.price}} </span> USD </span>
+            <span class="numberP">
+                {{
+                getDiscountPrice(product.price,
+                product.discountPercentage) }} </span>
+            USD
+        </p>
+        <p class="values">Brand: <span class="values">{{getBrand(product.brand, product.category)}}</span> </p>
+        <p class="values">Category: <span>{{product.category}}</span> </p>
+        <p class="values">In stock: <span>{{product.stock}}</span> </p>
+        <p class="rating" [ngStyle]="{ 'color': product.rating> 3.5 ? '#F4B000' : '#1e1e1eb0' }">
+            <span *ngIf="product.rating>3.5">&bigstar;</span>
+            {{product.rating}}
+            <span class="revLength">({{product.reviews.length}})</span>
+        </p>
+        <div class="row btnBox" style="display: flex; justify-content: center;
+         align-items: center; ">
+            <button [class.active]="added" class="addToCart1" type="button" (click)="addToCartItem(product)"
+                (click)="toggleAddedToCart()" [ariaHidden]="added">ADD TO
+                CART</button>
+            <button type="button" class="addToCart2" (click)="goToProductDetails()">VIEW PRODUCT</button>
+        </div>
+
+    </div>
+    <!-- <div class="card-body ">
+        <div class=" px-3 mb-2 d-flex jus&bigstar;roduct.price}}LE</span>
+        </div>
+    </div> -->
+    <!-- </div> -->

@@ -1,0 +1,102 @@
+form.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+form.d-flex input.form-control {
+    width: 400px;
+    padding: 6px;
+    transition: width 0.3s ease-in-out;
+}
+
+form.d-flex button {
+    margin-left: 8px;
+}
+
+@media (max-width: 1200px) {
+    form.d-flex input.form-control {
+        width: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .rows {
+        width: 90%;
+    }
+    .actions{
+        justify-content: end;
+    }
+    form.d-flex input.form-control {
+        width: 350px;
+        padding: 5px;
+    }
+
+    form.d-flex button {
+        margin-left: 5px;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .rows {
+        width: 95%;
+    }
+    .links .home{
+        /* background-color: red; */
+        margin-left: 15px;
+    }
+    .actions{
+        width: 100%;
+        margin-left: 15px;
+    }
+    
+    form.d-flex input.form-control {
+        width: 100%;
+        
+    }
+
+    
+}
+
+@media (max-width: 576px) {
+    .rows {
+        width: 98%;
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+    .actions{
+        width: 90%;
+        margin-left: 15px;
+    }
+    form.d-flex {
+        
+        width: 300px;
+        justify-content: space-between;
+    }
+
+    form.d-flex input.form-control {
+        width: 100%;
+        /* margin-bottom: 10px; */
+    }
+
+    .logo .title {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .links {
+        justify-content: space-evenly;
+        width: 200px;
+        margin-bottom: 10px;
+    }
+
+    .home {
+        padding: 5px;
+    }
+}
