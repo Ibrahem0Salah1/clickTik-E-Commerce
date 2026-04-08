@@ -36,6 +36,11 @@
     color: #8a9cb0;
 }
 
+.search-input::-ms-clear,
+.search-input::-ms-reveal {
+    display: none;
+}
+
 .clear-btn {
     border: none;
     background: #dde7f1;
@@ -49,6 +54,8 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .clear-btn:hover {

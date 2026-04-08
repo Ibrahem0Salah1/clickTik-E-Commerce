@@ -1,7 +1,7 @@
 <div class="search-shell" role="search">
     <span class="search-icon">⌕</span>
-    <input class="search-input" type="search" placeholder="Search products..." aria-label="Search products"
-        [value]="searchText" (input)="onSearch($any($event.target).value)" (search)="onSearch($any($event.target).value)">
+    <input class="search-input" type="text" placeholder="Search products..." aria-label="Search products"
+        [value]="searchText" (input)="onSearch($any($event.target).value)">
     <button class="clear-btn" type="button" *ngIf="searchText" (click)="clearSearch()" aria-label="Clear search">
         ×
     </button>

@@ -63,11 +63,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .status-pill {
-    max-width: 75%;
+    max-width: 100%;
+    flex: 1 1 170px;
     display: inline-block;
     background: rgba(45, 212, 191, 0.18);
     color: #a7fff2;
@@ -257,8 +259,16 @@
         border-radius: 14px;
     }
 
+    .filter-title {
+        font-size: 17px;
+    }
+
     .status-pill {
-        max-width: 68%;
+        width: 100%;
+    }
+
+    .reset-btn {
+        width: 100%;
     }
 
     .category-item {
@@ -271,5 +281,9 @@
 
     .check {
         font-size: 10px;
+    }
+
+    .category-list {
+        max-height: 52vh;
     }
 }
