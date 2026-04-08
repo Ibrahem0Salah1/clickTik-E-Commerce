@@ -1,0 +1,264 @@
+:host {
+    display: block;
+}
+
+.headerContainer {
+    margin-top: 0;
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #f6f9fc;
+}
+
+.labels {
+    width: 90%;
+    margin: 8px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid #d8e3eb;
+    border-radius: 14px;
+    background: linear-gradient(145deg, #ffffff, #f5faff);
+}
+
+.labels p {
+    margin: 0;
+    color: #1e293b;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.categoryLabel {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f766e;
+}
+
+.btnCategories {
+    display: none;
+    border: 1px solid #b4c7d4;
+    background: #ffffff;
+    color: #0f172a;
+    font-weight: 700;
+    border-radius: 999px;
+    padding: 6px 14px;
+    transition: all 0.2s ease;
+}
+
+.btnCategories:hover {
+    border-color: #0f766e;
+    color: #0f766e;
+    box-shadow: 0 8px 20px rgba(15, 118, 110, 0.15);
+}
+
+.offcanvas-header {
+    color: #0f172a;
+    font-weight: 700;
+    padding: 16px;
+    background-color: #f3f8fc;
+    border-bottom: 1px solid #d9e5ee;
+}
+
+.offcanvas-title {
+    font-weight: 800;
+}
+
+.offcanvas-body.filter-offcanvas-body {
+    padding: 14px;
+    background: linear-gradient(180deg, #f5f9fc, #edf5fa);
+}
+
+#offcanvasScrolling {
+    width: min(92vw, 420px);
+}
+
+.box {
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.slectList {
+    width: 300px;
+    min-width: 300px;
+    margin-top: 24px;
+    position: sticky;
+    top: 90px;
+}
+
+.productsall {
+    margin-top: 24px;
+    flex: 1;
+    min-width: 0;
+}
+
+.productsall .row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 15px;
+}
+
+.item {
+    width: 28%;
+}
+
+.card {
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    transition: transform 0.2s ease-in-out;
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.cardImage {
+    height: 200px;
+    object-fit: cover;
+}
+
+.pagination {
+    justify-content: center;
+    width: 420px;
+    margin: 32px auto;
+}
+
+.page-link {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    width: 34px;
+    margin: 4px;
+    color: #0f172a;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 600;
+}
+
+.page-link:hover {
+    background-color: #d9f4f3;
+    border-color: #86d7d3;
+}
+
+.empty-state {
+    margin: 30px auto;
+    max-width: 460px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px dashed #b8c6d3;
+    border-radius: 14px;
+    padding: 24px 20px;
+}
+
+.empty-state h4 {
+    margin: 0;
+    font-size: 24px;
+    color: #0f172a;
+}
+
+.empty-state p {
+    margin: 8px 0 0;
+    color: #64748b;
+}
+
+@media (max-width: 1200px) {
+    .item {
+        width: 44%;
+    }
+}
+
+@media (max-width: 992px) {
+    .box {
+        width: 94%;
+    }
+
+    .slectList {
+        display: none;
+    }
+
+    .btnCategories {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .item {
+        width: 46%;
+    }
+}
+
+@media (max-width: 768px) {
+    .labels {
+        width: 95%;
+        padding: 12px;
+    }
+
+    .labels p {
+        font-size: 15px;
+    }
+
+    .item {
+        width: 48%;
+    }
+}
+
+@media (max-width: 576px) {
+    .labels {
+        flex-wrap: wrap;
+        gap: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #offcanvasScrolling {
+        width: 100vw;
+    }
+
+    .productsall .row {
+        gap: 0;
+    }
+
+    .item {
+        width: 100%;
+    }
+}
+
+.footer {
+    grid-column: span 12 / span 12;
+    grid-column-start: 1;
+    grid-row-start: 9;
+    background-color: #1d2939;
+}
+
+.footer .container {
+    color: white;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+}
+
+.footer .container .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.footer .container .left img {
+    width: 34px;
+    margin-right: 5px;
+}
+
+.footer .container .right {
+    margin-top: 20px;
+    color: #98a2b3;
+}

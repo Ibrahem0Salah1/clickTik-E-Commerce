@@ -1,0 +1,46 @@
+<section class="filter-panel">
+    <div class="panel-glow"></div>
+
+    <div class="filter-head">
+        <p class="filter-eyebrow">Smart Filter</p>
+        <h3 class="filter-title">Discover by Category</h3>
+        <p class="filter-subtitle">Refine products instantly with a cleaner, faster browsing experience.</p>
+    </div>
+
+    <div class="filter-status">
+        <span class="status-pill">Active: {{ selectedCategoryLabel }}</span>
+        <button type="button" class="reset-btn" (click)="onCategoryChange('All')" [disabled]="selectedCategory === 'All'">
+            Reset
+        </button>
+    </div>
+
+    <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" class="search-input" placeholder="Search category..." [(ngModel)]="categorySearch">
+        <button type="button" class="clear-search" *ngIf="categorySearch" (click)="clearCategoryFilter()">
+            ×
+        </button>
+    </div>
+
+    <div class="category-list">
+        <button type="button" class="category-item" [class.active]="selectedCategory === 'All'"
+            (click)="onCategoryChange('All')">
+            <span class="item-dot"></span>
+            <span class="name">All Products</span>
+            <span class="check" *ngIf="selectedCategory === 'All'">Selected</span>
+        </button>
+
+        <button type="button" class="category-item" *ngFor="let category of filteredCategories"
+            [class.active]="selectedCategory === category" (click)="onCategoryChange(category)">
+            <span class="item-dot"></span>
+            <span class="name">{{ formatCategoryLabel(category) }}</span>
+            <span class="check" *ngIf="selectedCategory === category">Selected</span>
+        </button>
+
+        <p class="empty-categories" *ngIf="!filteredCategories.length">
+            No categories found for "{{ categorySearch }}".
+        </p>
+    </div>
+
+    <p class="category-meta">Visible categories: {{ filteredCategories.length + 1 }}</p>
+</section>

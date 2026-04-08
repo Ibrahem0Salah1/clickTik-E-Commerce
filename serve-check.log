@@ -1,0 +1,10 @@
+
+> login-practice@0.0.0 start
+> ng serve --host 127.0.0.1 --port 4200
+
+ [1mPort 4200 is already in use.
+Would you like to use a different port?[22m [2m(Y/n)[22m[47G
+[?25h[1m[31mAn unhandled exception occurred: Port 4200 is already in use. Use '--port' to specify a different port.
+See "C:\Users\EGYPT_LAPTOP\AppData\Local\Temp\ng-SNE0oR\angular-errors.log" for further details.[39m[22m
+
+d:\clickTik-E-Commerce-main>

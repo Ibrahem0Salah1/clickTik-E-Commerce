@@ -1,0 +1,61 @@
+<header class="nav-shell">
+    <div class="nav-left">
+        <a class="brand" routerLink="/home/products/9/0/All">
+            <img src="assets/images/Logomark.png" alt="ClickTik logo">
+            <div class="brand-copy">
+                <span class="brand-name">ClickTik</span>
+                <span class="brand-tag">Commerce Studio</span>
+            </div>
+        </a>
+        <a class="home-link" routerLink="/home/products/9/0/All">Browse</a>
+    </div>
+
+    <div class="nav-right" *ngIf="logedIn">
+        <div class="search-slot">
+            <app-search (text)="onSearch($event)"></app-search>
+        </div>
+
+        <button class="cart-trigger" type="button" data-bs-toggle="offcanvas" data-bs-target="#cart"
+            aria-controls="offcanvasScrolling">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-text">Cart</span>
+            <span *ngIf="cartCount" class="badge-count">{{ cartCount }}</span>
+        </button>
+    </div>
+
+    <div class="nav-right" *ngIf="!logedIn">
+        <a class="login-link" routerLink="/login">Sign In</a>
+    </div>
+</header>
+
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="true" tabindex="-1" id="cart"
+    aria-labelledby="offcanvasScrollingLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Your Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+
+    <div class="offcanvas-body">
+        <p *ngIf="!emptyCart" class="empty">Your cart is empty. Add products to continue.</p>
+
+        <div class="product" *ngFor="let cartProduct of cartProducts">
+            <div class="image">
+                <img [src]="cartProduct.product.images?.[0] || cartProduct.product.thumbnail" alt="product image">
+            </div>
+            <div class="title">
+                <p class="title1">{{ cartProduct.product.title }}</p>
+                <p class="title2">Quantity: <span>{{ cartProduct.quantity }}</span></p>
+            </div>
+            <div class="title quantity-box">
+                <input type="number" class="form-control quantityinput" [value]="cartProduct.quantity"
+                    [(ngModel)]="cartProduct.quantity">
+                <button class="setQuality" (click)="setQuantity(cartProduct)">Update</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas-footer" *ngIf="emptyCart">
+        <button class="deleteCart" (click)="deleteCart()">Clear</button>
+        <button class="checkout" (click)="checkout()">Checkout</button>
+    </div>
+</div>
