@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <section class="filter-panel">
     <div class="panel-glow"></div>
 
@@ -45,22 +44,3 @@
 
     <p class="category-meta">Visible categories: {{ filteredCategories.length + 1 }}</p>
 </section>
-=======
-<div class="form-check option">
-    <input class="form-check-input" style="background-color: #667085" type="radio" name="categoryRadios" id="All"
-        value="All" [(ngModel)]="selectedCategory" (change)="onCategoryChange('All')"
-        routerLink="/home/products/9/0/All">
-    <label class="form-check-label" for="All">
-        All
-    </label>
-</div>
-
-<div class="form-check option" *ngFor="let category of allCategories">
-    <input class="form-check-input" style="background-color: #667085" type="radio" name="categoryRadios"
-        [value]="category" [(ngModel)]="selectedCategory" (change)="onCategoryChange(category)"
-        [checked]="selectedCategory === category">
-    <label class="form-check-label">
-        {{ category }}
-    </label>
-</div>
->>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2

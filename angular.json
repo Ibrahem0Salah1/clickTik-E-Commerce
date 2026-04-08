@@ -64,17 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-<<<<<<< HEAD
               "buildTarget": "loginPractice:build:production"
             },
             "development": {
               "buildTarget": "loginPractice:build:development"
-=======
-              "browserTarget": "loginPractice:build:production"
-            },
-            "development": {
-              "browserTarget": "loginPractice:build:development"
->>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
             }
           },
           "defaultConfiguration": "development"
@@ -82,11 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-<<<<<<< HEAD
             "buildTarget": "loginPractice:build"
-=======
-            "browserTarget": "loginPractice:build"
->>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
           }
         },
         "test": {

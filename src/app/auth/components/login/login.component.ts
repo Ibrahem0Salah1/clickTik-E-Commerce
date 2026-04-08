@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -8,26 +7,10 @@ import { AuthService } from '../../services/auth.service';
 @Component({
   selector: 'login',
   standalone: false,
-=======
-import {
-  Component,
-  EventEmitter,
-  OnChanges,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
-import { AllProductsComponent } from 'src/app/products/components/all-products/all-products.component';
-@Component({
-  selector: 'login',
->>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
   loginForm!: FormGroup;
   logedIn = false;
   currentUser: any;
@@ -40,22 +23,11 @@ export class LoginComponent implements OnInit {
     private toastr: ToastrService
   ) {}
 
-=======
-  constructor(
-    private http: AuthService,
-    private fb: FormBuilder,
-    private route: Router
-  ) {}
-  loginForm: any = FormGroup;
-  logedIn: boolean = false;
-  currentUser: any;
->>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
     });
-<<<<<<< HEAD
 
     if (localStorage.getItem('token')) {
       this.fetchCurrentUser();
@@ -97,53 +69,6 @@ export class LoginComponent implements OnInit {
         this.currentUser = null;
         this.logedIn = false;
       },
-=======
-    if (localStorage.getItem('token')) {
-      this.getUser();
-      this.logedIn = true;
-    } else {
-      this.logedIn = false;
-    }
-  }
-
-  onSubmit() {
-    const limit = 9;
-    const skip = 0;
-    const category = 'All';
-    const loginData = this.loginForm.value;
-    this.http.onLogin(loginData).subscribe((res: any) => {
-      // console.log(res);
-      localStorage.setItem('token', res.accessToken);
-      console.log(res.accessToken);
-      localStorage.setItem('refreshToken', res.refreshToken);
-      this.route.navigateByUrl(`home/products/${limit}/${skip}/${category}`);
-    });
-    this.authUser();
-  }
-
-  authUser() {
-    this.http.getAndAuthorizeCurrentUser().subscribe({
-      next: (user) => {
-        // this.currentUser = user;
-        // console.log(this.currentUser);
-        this.logedIn = true;
-        if (this.logedIn) {
-          this.route.navigateByUrl('home/products/:limit/:skip/:category');
-          // navigateByUrl('clickTik.com/home/products/9/0/All');
-        }
-      },
-      error: (err) => {
-        this.logedIn = false;
-        console.log(this.logedIn);
-      },
-    });
-  }
-  getUser() {
-    this.http.getAndAuthorizeCurrentUser().subscribe((res: any) => {
-      this.currentUser = res;
-      // JSON.parse(this.currentUser);
-      console.log(this.currentUser);
->>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
     });
   }
 }
