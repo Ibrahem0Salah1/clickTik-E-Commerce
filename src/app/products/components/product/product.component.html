@@ -1,7 +1,11 @@
 <div class="card item">
     <div class="card-body">
         <p class="discPercentage">- {{product.discountPercentage}}%</p>
+<<<<<<< HEAD
         <img class="cardImage" [src]="product.images?.[0] || product.thumbnail" style="width: 100%;">
+=======
+        <img class="cardImage" [src]="product.images[0]" style="width: 100%;">
+>>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
         <h5 class="card-title">{{product.title}}</h5>
         <p class="card-text">
             <span>{{ product.description}}</span>
@@ -21,12 +25,20 @@
         <p class="rating" [ngStyle]="{ 'color': product.rating> 3.5 ? '#F4B000' : '#1e1e1eb0' }">
             <span *ngIf="product.rating>3.5">&bigstar;</span>
             {{product.rating}}
+<<<<<<< HEAD
             <span class="revLength">({{ product.reviews?.length || 0 }})</span>
+=======
+            <span class="revLength">({{product.reviews.length}})</span>
+>>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
         </p>
         <div class="row btnBox" style="display: flex; justify-content: center;
          align-items: center; ">
             <button [class.active]="added" class="addToCart1" type="button" (click)="addToCartItem(product)"
+<<<<<<< HEAD
                 [ariaHidden]="added">ADD TO
+=======
+                (click)="toggleAddedToCart()" [ariaHidden]="added">ADD TO
+>>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
                 CART</button>
             <button type="button" class="addToCart2" (click)="goToProductDetails()">VIEW PRODUCT</button>
         </div>
@@ -36,4 +48,8 @@
         <div class=" px-3 mb-2 d-flex jus&bigstar;roduct.price}}LE</span>
         </div>
     </div> -->
+<<<<<<< HEAD
     <!-- </div> -->
+=======
+    <!-- </div> -->
+>>>>>>> 9d0bc879dbfa2144d6e38b7402ea0f2148b95ad2
